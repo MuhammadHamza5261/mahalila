@@ -5,7 +5,7 @@ class AppColors {
   static Color appBarColor = const Color(0xff262628);
   static Color appBarColor2 = const Color(0xff262628);
   static Color lightOrange = const Color(0xffF56C29);
-  static Color yellowTextColor = const Color(0xfff5c205);
+  static Color yellowColor = const Color(0xffFFCC00);
   static Color greyLightTextColor = const Color(0xffBABFCF);
   static Color greyLightTextColor2 = const Color(0xff7D849A);
   static Color darkTextColor = const Color(0xff101D1B);
