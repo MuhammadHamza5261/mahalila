@@ -17,14 +17,10 @@ class GetStarted extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("assets/png/watch.png"),
+            Expanded(child: Image.asset("assets/png/watch.png")),
             TextWidget(text: 'Pick Your Favourite', color: AppColors.greyLightTextColor, fontSize: 16),
             const TextWidget(text: 'Mahalila', color: Colors.white, fontSize: 35, weight: FontWeight.bold),
-            TextWidget(
-                textAlign: TextAlign.center,
-                fontSize: 16,
-                text: 'Weekly deal, discount and much more \non our mobile application.',
-                color: AppColors.greyLightTextColor),
+            TextWidget(textAlign: TextAlign.center, fontSize: 16, text: 'Weekly deal, discount and much more \non our mobile application.', color: AppColors.greyLightTextColor),
             Padding(
               padding: const EdgeInsets.only(top: 20.0),
               child: CustomButton(
