@@ -99,7 +99,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       selectedRadius: 10,
                       unSelectedRadius: 10,
                       controller: _password,
-                      hints: 'Password',
+                      hints: 'Password ',
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'Enter password';

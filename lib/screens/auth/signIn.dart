@@ -87,7 +87,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         alignment: Alignment.topRight,
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgotPasswordScreen()));
                           },
                           child: TextWidget(
                               text: 'Forgot your password?', color: Colors.black.withOpacity(0.5), fontSize: 15, weight: FontWeight.w400),
