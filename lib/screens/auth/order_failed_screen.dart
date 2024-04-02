@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
+import '../../bottom_navigator.dart';
 import '../../component/backButtonWidget.dart';
 import '../../component/customButton.dart';
 import '../../component/customText.dart';
@@ -50,11 +52,14 @@ class _OrderFailedScreenState extends State<OrderFailedScreen> {
                         radius: 8,
                         text: 'DONE',
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => const OrderFailedScreen(),
-                          //     ));
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.rightToLeft,
+                              duration: const Duration(milliseconds: 500),
+                              child: const NavigationScreen(),
+                            ),
+                          );
                         },
                         fontSize: 17,
                         textColor: Colors.white),

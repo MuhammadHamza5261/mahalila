@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mahalila/screens/auth/signUp.dart';
 import 'package:page_transition/page_transition.dart';
 
+import '../../bottom_navigator.dart';
 import '../../component/backButtonWidget.dart';
 import '../../component/customButton.dart';
 import '../../component/customText.dart';
@@ -100,7 +101,16 @@ class _SignInScreenState extends State<SignInScreen> {
                           buttonColor: AppColors.primaryColor,
                           radius: 8,
                           text: 'SIGN IN',
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              PageTransition(
+                                type: PageTransitionType.rightToLeft,
+                                duration: const Duration(milliseconds: 500),
+                                child: const NavigationScreen(),
+                              ),
+                            );
+                          },
                           fontSize: 17,
                           textColor: Colors.white),
                     ),
@@ -136,7 +146,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
             ),
           ),
-          BackButtonWidget(),
+          const BackButtonWidget(),
         ],
       ),
     );
