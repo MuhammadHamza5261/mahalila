@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mahalila/screens/auth/order_success_screen.dart';
+import 'package:mahalila/screens/auth/otp_screen.dart';
 
 import '../../component/backButtonWidget.dart';
 import '../../component/customButton.dart';
@@ -58,7 +58,7 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const OrderSuccessScreen(),
+                                builder: (context) => const OTPScreen(),
                               ));
                         },
                         fontSize: 17,
@@ -67,7 +67,7 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
                 ],
               ),
             ),
-            BackButtonWidget(),
+            const BackButtonWidget(),
           ],
         ),
       ),

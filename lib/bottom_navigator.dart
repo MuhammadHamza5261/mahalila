@@ -11,7 +11,7 @@ class NavigationScreen extends StatefulWidget {
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
-  int _currentIndex = 2;
+  int _currentIndex = 0;
   final List<Widget> _screens = const [
     Profile(),
     Profile(),
@@ -31,7 +31,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
           body: _screens[_currentIndex],
           bottomNavigationBar: BottomAppBar(
             padding: EdgeInsets.zero,
-            height: 80,
+            height: 70,
             elevation: 0,
             child: Row(
               children: [
