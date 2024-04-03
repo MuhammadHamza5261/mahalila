@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mahalila/screens/profile/promoCode_screen.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../../component/Settings_ListTile_widget.dart';
 import '../../component/divider.dart';
 import '../../component/profileCard.dart';
 import '../../utils/styles.dart';
+import 'order_history.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -36,25 +39,48 @@ class Profile extends StatelessWidget {
             title: 'Order History',
             avatarBGColor: AvatarColors.amberColor,
             onTap: () {
-              // Navigator.push(context, MaterialPageRoute(builder: (context) => const MyRewards()));
+              Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.rightToLeft,
+                  duration: const Duration(milliseconds: 500),
+                  child: const OrderHistoryScreen(),
+                ),
+              );
             },
           ),
           dividerWidget(),
           SettingsListTileWidget(
-              leadingIcon: Icons.location_on_outlined,
-              title: 'My Address',
-              avatarBGColor: AvatarColors.blueColor,
-              onTap: () {
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfileScreen()));
-              }),
+            leadingIcon: Icons.location_on_outlined,
+            title: 'My Address',
+            avatarBGColor: AvatarColors.blueColor,
+            onTap: () {
+              // Navigator.push(
+              //   context,
+              //   PageTransition(
+              //     type: PageTransitionType.rightToLeft,
+              //     duration: const Duration(milliseconds: 500),
+              //     child: const PromoCodeScreen(),
+              //   ),
+              // );
+            },
+          ),
           dividerWidget(),
           SettingsListTileWidget(
-              leadingIcon: CupertinoIcons.gift,
-              title: 'My Promo-codes',
-              avatarBGColor: AvatarColors.orangeDarkColor,
-              onTap: () {
-                //  Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsScreen()));
-              }),
+            leadingIcon: CupertinoIcons.gift,
+            title: 'My Promo-codes',
+            avatarBGColor: AvatarColors.orangeDarkColor,
+            onTap: () {
+              Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.rightToLeft,
+                  duration: const Duration(milliseconds: 500),
+                  child: const PromoCodeScreen(),
+                ),
+              );
+            },
+          ),
           dividerWidget(),
           SettingsListTileWidget(
             leadingIcon: Icons.favorite_border,

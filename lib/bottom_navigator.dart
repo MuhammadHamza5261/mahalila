@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mahalila/screens/home/home_screen.dart';
 import 'package:mahalila/screens/profile/profileScreen.dart';
 import 'package:mahalila/utils/styles.dart';
 
@@ -13,7 +14,7 @@ class NavigationScreen extends StatefulWidget {
 class _NavigationScreenState extends State<NavigationScreen> {
   int _currentIndex = 0;
   final List<Widget> _screens = const [
-    Profile(),
+    HomeScreen(),
     Profile(),
     Profile(),
     Profile(),

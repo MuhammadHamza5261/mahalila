@@ -13,7 +13,9 @@ class AppColors {
   static Color btnBorderColor = const Color(0xffE8E8E8);
   static Color greyBgColor = const Color(0xffF2F2F2);
   static Color greyBgColor2 = const Color(0xffF9F9F9);
-  static Color tealColor = const Color(0xff4BCCBB);
+  static Color greenColor = const Color(0xff53CB16);
+  static Color blueColor = const Color(0xff4044D4);
+  static Color orangeColor = const Color(0xffEDB42E);
 }
 
 class AvatarColors {

@@ -3,6 +3,7 @@ import 'package:mahalila/component/customAppBar.dart';
 
 import '../../component/customText.dart';
 import '../../utils/styles.dart';
+import 'complete_order_screen.dart';
 import 'ongoing_order_screen.dart';
 
 class OrderHistoryScreen extends StatefulWidget {
@@ -22,7 +23,11 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(title: 'Order History', onTap: () {}),
+      appBar: CustomAppBar(
+          title: 'Order History',
+          onTap: () {
+            Navigator.pop(context);
+          }),
       body: Column(
         children: [
           SizedBox(
@@ -45,6 +50,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
               },
               children: const [
                 OnGoingOrderScreen(),
+                CompleteOrderScreen(),
               ],
             ),
           )
