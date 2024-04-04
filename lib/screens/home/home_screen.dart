@@ -14,6 +14,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int _currentImageIndex = 0;
+  List<String> imagesPath = [
+    'assets/png/slider.png',
+    'assets/png/slider.png',
+    'assets/png/slider.png',
+  ];
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -60,6 +66,31 @@ class _HomeScreenState extends State<HomeScreen> {
                     focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
                   ),
                 ),
+
+                ///Slider Image
+                SizedBox(
+                  height: 200,
+                  child: PageView.builder(
+                    itemCount: imagesPath.length,
+                    onPageChanged: (index) {
+                      setState(() {
+                        _currentImageIndex = index;
+                      });
+                    },
+                    itemBuilder: (context, index) {
+                      return ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          imagesPath[index],
+                          height: 200,
+                          width: double.infinity,
+                          fit: BoxFit.fill,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                _dotIndicator(),
 
                 ///For Scale
                 Padding(
@@ -132,6 +163,24 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  ///Doted of image indicator progress
+  Widget _dotIndicator() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(imagesPath.length, (index) {
+        return Container(
+          width: 12,
+          height: 12,
+          margin: const EdgeInsets.symmetric(horizontal: 5),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: _currentImageIndex == index ? AppColors.primaryColor : Colors.grey,
+          ),
+        );
+      }),
     );
   }
 }
