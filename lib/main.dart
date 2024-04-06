@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mahalila/bottom_navigator.dart';
+import 'package:mahalila/screens/home/home_screen.dart';
+import 'package:mahalila/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: NavigationScreen(),
+      home: HomeScreen(),
     );
   }
 }

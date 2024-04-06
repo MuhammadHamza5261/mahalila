@@ -14,7 +14,7 @@ class DailyDealsWidget extends StatelessWidget {
         width: width * 0.45,
         height: height * 0.28,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(10),
           image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
         ),
       ),

@@ -14,7 +14,7 @@ class PopularBrandWidget extends StatelessWidget {
         width: width * 0.8,
         height: height * 0.22,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(10),
           image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
         ),
       ),
