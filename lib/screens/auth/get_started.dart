@@ -14,21 +14,25 @@ class GetStarted extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(child: Image.asset("assets/png/watch.png")),
+            Image.asset("assets/png/watch.png", width: 300, height: 300),
             TextWidget(text: 'Pick Your Favourite', color: AppColors.greyLightTextColor, fontSize: 16),
             const TextWidget(text: 'Mahalila', color: Colors.white, fontSize: 35, weight: FontWeight.bold),
-            TextWidget(textAlign: TextAlign.center, fontSize: 16, text: 'Weekly deal, discount and much more \non our mobile application.', color: AppColors.greyLightTextColor),
+            TextWidget(
+                textAlign: TextAlign.center,
+                fontSize: 16,
+                text: 'Weekly deal, discount and much more \non our mobile application.',
+                color: AppColors.greyLightTextColor),
             Padding(
-              padding: const EdgeInsets.only(top: 20.0),
+              padding: const EdgeInsets.only(top: 40.0),
               child: CustomButton(
                   width: double.infinity,
                   height: 50,
-                  buttonColor: Color(0xff131313),
+                  buttonColor: const Color(0xff131313),
                   radius: 10,
-                  text: 'Get Started',
+                  text: 'GET STARTED',
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()));
                   },
