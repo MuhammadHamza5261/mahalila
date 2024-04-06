@@ -10,6 +10,20 @@ class CustomModalBottomSheet2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20.0),
+      decoration: const BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 20,
+              spreadRadius: 20,
+              offset: Offset(1, 0),
+            )
+          ],
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(30),
+            topLeft: Radius.circular(30),
+          )),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -22,13 +36,11 @@ class CustomModalBottomSheet2 extends StatelessWidget {
                   text: 'Item Total',
                   weight: FontWeight.w400,
                   color: Colors.black,
-                  fontSize: 16,
                 ),
                 TextWidget(
                   text: '\$20',
                   weight: FontWeight.w400,
                   color: Colors.black,
-                  fontSize: 16,
                 ),
               ],
             ),
@@ -42,13 +54,11 @@ class CustomModalBottomSheet2 extends StatelessWidget {
                   text: 'Delivery Cost',
                   weight: FontWeight.w400,
                   color: Colors.black,
-                  fontSize: 16,
                 ),
                 TextWidget(
                   text: '\$5',
                   weight: FontWeight.w400,
                   color: Colors.black,
-                  fontSize: 16,
                 ),
               ],
             ),
@@ -57,9 +67,26 @@ class CustomModalBottomSheet2 extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 16.0),
             child: TextWidget(text: '--------------------------------------------------------------'),
           ),
+          const Padding(
+            padding: EdgeInsets.only(bottom: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextWidget(
+                  text: 'Order Total',
+                  weight: FontWeight.w400,
+                  color: Colors.black,
+                ),
+                TextWidget(
+                  text: '\$25',
+                  weight: FontWeight.w400,
+                  color: Colors.black,
+                ),
+              ],
+            ),
+          ),
           InkWell(
             onTap: () {
-              Navigator.pop(context);
               showModalBottomSheet(context: context, builder: (context) => PaymentMethodBottomSheet());
             },
             child: Container(

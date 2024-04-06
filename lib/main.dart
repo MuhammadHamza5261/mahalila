@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'go_to_checkout_screen.dart';
+import 'package:mahalila/bottom_navigator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: GoToCheckOutScreen(),
+      home: NavigationScreen(),
     );
   }
 }
