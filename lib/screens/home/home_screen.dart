@@ -26,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: height * 0.005, horizontal: width * 0.05),
@@ -154,8 +153,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    pageViewButton(0, 'Notification'),
-                    pageViewButton(1, 'Messages'),
+                    pageViewButton(0, 'Airpods'),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: pageViewButton(1, 'Laptops'),
+                    ),
                   ],
                 ),
               ),
@@ -209,20 +211,28 @@ class _HomeScreenState extends State<HomeScreen> {
       },
       child: Container(
         width: width * 0.38,
-        height: height * 0.05,
+        height: height * 0.063,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(index == 0 ? 8 : 0),
-              bottomLeft: Radius.circular(index == 0 ? 8 : 0),
-              bottomRight: Radius.circular(index == 1 ? 8 : 0),
-              topRight: Radius.circular(index == 1 ? 8 : 0)),
-          color: _selectedIndex == index ? AppColors.primaryColor : Colors.transparent,
+          borderRadius: BorderRadius.circular(8),
+          color: _selectedIndex == index ? AppColors.primaryColor : Colors.white,
         ),
-        child: Center(
-            child: TextWidget(
-          text: name,
-          fontSize: width * 0.04,
-        )),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset('assets/png/airpods.png'),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: TextWidget(
+                text: name,
+                fontSize: width * 0.04,
+                weight: FontWeight.w500,
+                color: _selectedIndex == index ? Colors.white : AppColors.primaryColor,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -5,170 +5,137 @@ import 'customAppBar.dart';
 import 'customButton.dart';
 import 'customText.dart';
 
-class RaffleFilterScreen extends StatefulWidget {
-  const RaffleFilterScreen({super.key});
+class FilterScreen extends StatefulWidget {
+  const FilterScreen({super.key});
 
   @override
-  State<RaffleFilterScreen> createState() => _RaffleFilterScreenState();
+  State<FilterScreen> createState() => _FilterScreenState();
 }
 
-class _RaffleFilterScreenState extends State<RaffleFilterScreen> {
-  String _selectedValDD1 = 'Category 1';
-  String _selectedValDD2 = 'Category 1';
-  String _selectedValDD3 = 'Category 1';
-  final List<String> _dropdownItems = ['Category 1', 'Category 2', 'Category 3'];
+class _FilterScreenState extends State<FilterScreen> {
+  int? _isSelected;
+  double _currentValue = 0.0;
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: CustomAppBar(
-        title: 'Raffle Filter',
-        onTap: () {
-          Navigator.pop(context);
-        },
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 12.0),
-              child: TextWidget(text: 'Select Categories', fontSize: 16, weight: FontWeight.w600),
-            ),
-            Row(
-              children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  // margin: EdgeInsets.only(left: index == 0 ? 0 : 8, right: index == 3 ? 0 : 8),
-                  decoration: BoxDecoration(
-                    color: AppColors.greyBgColor2,
-                    border: Border.all(color: AppColors.btnBorderColor),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
+          title: 'Filters',
+          onTap: () {
+            Navigator.pop(context);
+          }),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: width * 0.04, vertical: height * 0.02),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ///Sort By
+              TextWidget(text: 'Sort By', fontSize: width * 0.043, weight: FontWeight.w800),
+
+              ///price filter
+              _selectThePricing(0, 'Price Low To High'),
+              _selectThePricing(0, 'Price High To Low'),
+
+              Padding(
+                padding: EdgeInsets.only(top: height * 0.03),
+                child: TextWidget(text: 'Product', fontSize: width * 0.038, weight: FontWeight.w500),
+              ),
+              const ListTile(
+                contentPadding: EdgeInsets.zero,
+                title: TextWidget(
+                  text: 'Laptop',
                 ),
-                Expanded(
-                  child: DropdownButton<String>(
-                    isExpanded: true,
-                    value: _selectedValDD1,
-                    style: TextStyle(color: AppColors.greyLightTextColor, fontSize: 18),
-                    isDense: false,
-                    underline: SizedBox(),
-                    items: _dropdownItems.map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        _selectedValDD1 = newValue!;
-                      });
-                    },
-                  ),
+                trailing: Icon(Icons.keyboard_arrow_down, color: Colors.grey),
+              ),
+
+              Padding(
+                padding: EdgeInsets.only(top: height * 0.01),
+                child: TextWidget(
+                  text: 'Brand',
+                  fontSize: width * 0.038,
+                  weight: FontWeight.w500,
                 ),
-              ],
-            ),
-            const Divider(),
-            Row(
-              children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  // margin: EdgeInsets.only(left: index == 0 ? 0 : 8, right: index == 3 ? 0 : 8),
-                  decoration: BoxDecoration(
-                    color: AppColors.greyBgColor2,
-                    border: Border.all(color: AppColors.btnBorderColor),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 8, bottom: height * 0.04),
+                child: const TextWidget(
+                  text: 'Audionic',
                 ),
-                Expanded(
-                  child: DropdownButton<String>(
-                    isExpanded: true,
-                    value: _selectedValDD2,
-                    isDense: false,
-                    style: TextStyle(color: AppColors.greyLightTextColor, fontSize: 18),
-                    underline: SizedBox(),
-                    items: _dropdownItems.map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        _selectedValDD2 = newValue!;
-                      });
-                    },
-                  ),
-                ),
-              ],
-            ),
-            const Divider(),
-            Row(
-              children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  // margin: EdgeInsets.only(left: index == 0 ? 0 : 8, right: index == 3 ? 0 : 8),
-                  decoration: BoxDecoration(
-                    color: AppColors.greyBgColor2,
-                    border: Border.all(color: AppColors.btnBorderColor),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                ),
-                Expanded(
-                  child: DropdownButton<String>(
-                    isExpanded: true,
-                    value: _selectedValDD3,
-                    style: TextStyle(color: AppColors.greyLightTextColor, fontSize: 18),
-                    isDense: false,
-                    underline: SizedBox(),
-                    items: _dropdownItems.map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        _selectedValDD3 = newValue!;
-                      });
-                    },
-                  ),
-                ),
-              ],
-            ),
-            const Divider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                CustomButton(
-                  width: 110,
-                  height: 40,
-                  buttonColor: const Color(0xffFF2651),
-                  radius: 8,
-                  text: 'Reset',
-                  onTap: () {},
-                  fontSize: 16,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+              ),
+
+              ///Slider
+              TextWidget(text: 'Price', fontSize: width * 0.04),
+              Slider(
+                thumbColor: AppColors.primaryColor,
+                activeColor: Colors.black,
+                value: _currentValue,
+                min: 0,
+                max: 100,
+                onChanged: (double value) {
+                  setState(() {
+                    _currentValue = value;
+                  });
+                },
+              ),
+              Row(
+                children: [
+                  TextWidget(text: '\$5', fontSize: width * 0.036, color: AppColors.greyLightTextColor),
+                  const Spacer(),
+                  TextWidget(text: '\$5000', fontSize: width * 0.036, color: AppColors.greyLightTextColor),
+                ],
+              ),
+              // gapH(height * 0.03),
+
+              Padding(
+                padding: EdgeInsets.only(top: height * 0.02),
+                child: Align(
+                  alignment: Alignment.centerRight,
                   child: CustomButton(
-                    width: 110,
-                    height: 40,
-                    buttonColor: AppColors.primaryColor,
-                    radius: 8,
-                    text: 'Apply',
-                    fontSize: 16,
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                  ),
+                      width: 100,
+                      height: 40,
+                      buttonColor: AppColors.primaryColor,
+                      radius: 8,
+                      text: 'Apply',
+                      onTap: () {},
+                      textColor: Colors.white),
                 ),
-              ],
-            ),
-          ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _selectThePricing(int index, String text) {
+    final width = MediaQuery.of(context).size.width;
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _isSelected = index == _isSelected ? null : index;
+        });
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 3),
+        child: Container(
+          padding: const EdgeInsets.only(bottom: 10, top: 16),
+          decoration: BoxDecoration(
+            border: Border(bottom: BorderSide(color: Colors.grey.withOpacity(0.3))),
+          ),
+          child: Row(
+            children: [
+              TextWidget(
+                text: text,
+                fontSize: width * 0.038,
+                color: Colors.grey,
+              ),
+              const Spacer(),
+              if (_isSelected == index) const Icon(Icons.check),
+            ],
+          ),
         ),
       ),
     );

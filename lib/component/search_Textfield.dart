@@ -32,7 +32,7 @@ class SearchTextField extends StatelessWidget {
           prefixIcon: Padding(padding: const EdgeInsets.all(8.0), child: Image.asset('assets/png/search.png')),
           suffixIcon: InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => RaffleFilterScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => FilterScreen()));
             },
             child: Container(
               width: 50,
