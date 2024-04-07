@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mahalila/screens/splash_screen.dart';
+
+import 'bottom_navigator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: SplashScreen(),
+      home: NavigationScreen(),
     );
   }
 }
