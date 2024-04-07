@@ -19,7 +19,7 @@ class GetStarted extends StatelessWidget {
           children: [
             Image.asset("assets/png/watch.png", width: 300, height: 300),
             TextWidget(text: 'Pick Your Favourite', color: AppColors.greyLightTextColor, fontSize: 16),
-            const TextWidget(text: 'Mahalila', color: Colors.white, fontSize: 35, weight: FontWeight.bold),
+            const TextWidget(text: 'MAHALILA', color: Colors.white, fontSize: 35, weight: FontWeight.bold),
             TextWidget(
                 textAlign: TextAlign.center,
                 fontSize: 16,

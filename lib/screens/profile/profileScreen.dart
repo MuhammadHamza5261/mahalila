@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mahalila/screens/profile/promoCode_screen.dart';
+import 'package:mahalila/screens/profile/shippingAddress.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../../component/Settings_ListTile_widget.dart';
@@ -55,14 +56,14 @@ class Profile extends StatelessWidget {
             title: 'My Address',
             avatarBGColor: AvatarColors.blueColor,
             onTap: () {
-              // Navigator.push(
-              //   context,
-              //   PageTransition(
-              //     type: PageTransitionType.rightToLeft,
-              //     duration: const Duration(milliseconds: 500),
-              //     child: const PromoCodeScreen(),
-              //   ),
-              // );
+              Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.rightToLeft,
+                  duration: const Duration(milliseconds: 500),
+                  child: const ShippingAddressScreen(),
+                ),
+              );
             },
           ),
           dividerWidget(),

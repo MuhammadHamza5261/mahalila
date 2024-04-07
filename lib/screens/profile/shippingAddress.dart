@@ -20,7 +20,11 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(title: 'Shipping Address', onTap: () {}),
+      appBar: CustomAppBar(
+          title: 'Shipping Address',
+          onTap: () {
+            Navigator.pop(context);
+          }),
       body: SingleChildScrollView(
         child: Padding(
             padding: const EdgeInsets.only(top: 20, left: 24, right: 26),

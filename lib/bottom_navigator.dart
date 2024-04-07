@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mahalila/screens/cart/my_cart_screen.dart';
 import 'package:mahalila/screens/home/home_screen.dart';
+import 'package:mahalila/screens/profile/order_history.dart';
 import 'package:mahalila/screens/profile/profileScreen.dart';
 import 'package:mahalila/utils/styles.dart';
+import 'package:mahalila/wish_list.dart';
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen({super.key});
@@ -16,8 +17,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
   int _currentIndex = 0;
   final List<Widget> _screens = [
     HomeScreen(),
-    MyCartScreen(),
-    Profile(),
+    WishList(),
+    OrderHistoryScreen(),
     Profile(),
   ];
 
