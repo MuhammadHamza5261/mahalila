@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
+import 'customText.dart';
+
 class PopularBrandWidget extends StatelessWidget {
   final String image;
   const PopularBrandWidget({super.key, required this.image});
@@ -17,6 +19,12 @@ class PopularBrandWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
         ),
+        child: const Align(
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: EdgeInsets.only(right: 12, bottom: 10),
+              child: TextWidget(text: 'Laptop', color: CupertinoColors.white, weight: FontWeight.w500),
+            )),
       ),
     );
   }

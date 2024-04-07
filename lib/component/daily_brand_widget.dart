@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
+import 'customText.dart';
+
 class DailyDealsWidget extends StatelessWidget {
   final String image;
   const DailyDealsWidget({super.key, required this.image});
@@ -17,6 +19,12 @@ class DailyDealsWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
         ),
+        child: Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 12, bottom: 10),
+              child: TextWidget(text: 'Watch', color: CupertinoColors.white, weight: FontWeight.w500),
+            )),
       ),
     );
   }

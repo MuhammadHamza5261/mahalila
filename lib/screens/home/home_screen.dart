@@ -83,8 +83,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.all(4.0),
                         child: Image.asset('assets/png/search.png', width: 5),
                       ),
-                      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(color: Color(0xffEBEEF0))),
-                      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide(color: AppColors.primaryColor))),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(color: Color(0xffEBEEF0))),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8), borderSide: BorderSide(color: AppColors.primaryColor))),
                 ),
               ),
 
@@ -141,7 +143,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   text: '4.9',
                                                   style: TextStyle(color: Colors.white, fontSize: width * 0.038),
                                                 ),
-                                                TextSpan(text: ' (212k reviews)', style: TextStyle(color: Colors.white, fontSize: width * 0.03)),
+                                                TextSpan(
+                                                    text: ' (212k reviews)', style: TextStyle(color: Colors.white, fontSize: width * 0.03)),
                                               ],
                                             ),
                                           ),
@@ -171,15 +174,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     ///Tabs
                     SizedBox(
                       height: height * 0.1,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          pageViewButton(0, 'Airpods'),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
-                            child: pageViewButton(1, 'Laptops'),
-                          ),
-                        ],
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            pageViewButton(0, 'Airpods'),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10.0),
+                              child: pageViewButton(1, 'Laptops'),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10.0),
+                              child: pageViewButton(2, 'Mobile'),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
 
@@ -203,10 +213,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: const [
-                          ForSaleWidget(image: 'assets/png/watch2.png'),
-                          ForSaleWidget(image: 'assets/png/watch2.png'),
-                          ForSaleWidget(image: 'assets/png/watch2.png'),
-                          ForSaleWidget(image: 'assets/png/watch2.png'),
+                          ForSaleWidget(image: 'assets/png/watch2.png', title: 'Apple'),
+                          ForSaleWidget(image: 'assets/png/watch2.png', title: 'Audionic'),
+                          ForSaleWidget(image: 'assets/png/watch2.png', title: 'Sony'),
                         ],
                       ),
                     ),
@@ -226,7 +235,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: height * 0.22,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
-                        children: [
+                        children: const [
                           PopularBrandWidget(image: 'assets/png/laptop.png'),
                           PopularBrandWidget(image: 'assets/png/laptop.png'),
                         ],
@@ -248,7 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       scrollDirection: Axis.horizontal,
                       child: SizedBox(
                         height: height * 0.28,
-                        child: Row(
+                        child: const Row(
                           children: [
                             DailyDealsWidget(image: 'assets/png/watch2.png'),
                             DailyDealsWidget(image: 'assets/png/watch2.png'),
@@ -307,10 +316,10 @@ class _HomeScreenState extends State<HomeScreen> {
     final width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () {
-        setState(() {
-          _selectedIndex = index;
-          _pageController.animateToPage(index, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
-        });
+        // setState(() {
+        //   _selectedIndex = index;
+        //   _pageController.animateToPage(index, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+        // });
       },
       child: Container(
         width: width * 0.38,

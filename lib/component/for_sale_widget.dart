@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:mahalila/component/customText.dart';
 
 class ForSaleWidget extends StatelessWidget {
   final String image;
-  const ForSaleWidget({super.key, required this.image});
+  final String title;
+  const ForSaleWidget({super.key, required this.image, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +19,12 @@ class ForSaleWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
         ),
+        child: Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 12, bottom: 10),
+              child: TextWidget(text: title, color: CupertinoColors.white, weight: FontWeight.w500),
+            )),
       ),
     );
   }
