@@ -29,8 +29,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
-    final appBarHeight = height * 0.1;
-    final searchBarHeight = height * 0.07;
+    double appBarHeight = 80;
+    double searchBarHeight = 70;
+    const bottomBarHeight = 70;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -54,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => MyCartScreen()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const MyCartScreen()));
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -83,21 +84,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.all(4.0),
                         child: Image.asset('assets/png/search.png', width: 5),
                       ),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(color: Color(0xffEBEEF0))),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8), borderSide: BorderSide(color: AppColors.primaryColor))),
+                      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(color: Color(0xffEBEEF0))),
+                      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide(color: AppColors.primaryColor))),
                 ),
               ),
 
               SizedBox(
-                height: height - (appBarHeight + searchBarHeight * 1.15),
-                child: ListView(
-                  children: [
-                    /// First slider (images/offers)
-                    Padding(
-                      padding: EdgeInsets.only(top: height * 0.02),
-                      child: SizedBox(
+                height: height - (appBarHeight + bottomBarHeight + searchBarHeight + 35),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      /// First slider (images/offers)
+                      SizedBox(
                         height: 190,
                         child: PageView.builder(
                           itemCount: imagesPath.length,
@@ -143,8 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   text: '4.9',
                                                   style: TextStyle(color: Colors.white, fontSize: width * 0.038),
                                                 ),
-                                                TextSpan(
-                                                    text: ' (212k reviews)', style: TextStyle(color: Colors.white, fontSize: width * 0.03)),
+                                                TextSpan(text: ' (212k reviews)', style: TextStyle(color: Colors.white, fontSize: width * 0.03)),
                                               ],
                                             ),
                                           ),
@@ -168,122 +165,122 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                         ),
                       ),
-                    ),
-                    _dotIndicator(),
+                      _dotIndicator(),
 
-                    ///Tabs
-                    SizedBox(
-                      height: height * 0.1,
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
+                      ///Tabs
+                      SizedBox(
+                        height: height * 0.1,
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              pageViewButton(0, 'Airpods'),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10.0),
+                                child: pageViewButton(1, 'Laptops'),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10.0),
+                                child: pageViewButton(2, 'Mobile'),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+
+                      /// For Scale
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: height * 0.02),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            pageViewButton(0, 'Airpods'),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10.0),
-                              child: pageViewButton(1, 'Laptops'),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10.0),
-                              child: pageViewButton(2, 'Mobile'),
-                            ),
+                            TextWidget(text: 'For Scale', weight: FontWeight.bold, fontSize: width * 0.04),
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => ViewAllForSale()));
+                                },
+                                child: const TextWidget(text: 'View all', color: Colors.grey)),
                           ],
                         ),
                       ),
-                    ),
-
-                    /// For Scale
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: height * 0.02),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          TextWidget(text: 'For Scale', weight: FontWeight.bold, fontSize: width * 0.04),
-                          GestureDetector(
-                              onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => ViewAllForSale()));
-                              },
-                              child: const TextWidget(text: 'View all', color: Colors.grey)),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.2,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: const [
-                          ForSaleWidget(image: 'assets/png/watch2.png', title: 'Apple'),
-                          ForSaleWidget(image: 'assets/png/watch2.png', title: 'Audionic'),
-                          ForSaleWidget(image: 'assets/png/watch2.png', title: 'Sony'),
-                        ],
-                      ),
-                    ),
-
-                    // Popular Brand
-                    Padding(
-                      padding: EdgeInsets.only(top: height * 0.03, bottom: height * 0.02),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          TextWidget(text: 'Popular Brand', weight: FontWeight.bold, fontSize: width * 0.04),
-                          const TextWidget(text: 'View all', color: Colors.grey),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.22,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: const [
-                          PopularBrandWidget(image: 'assets/png/laptop.png'),
-                          PopularBrandWidget(image: 'assets/png/laptop.png'),
-                        ],
-                      ),
-                    ),
-
-                    //Daily Deals
-                    Padding(
-                      padding: EdgeInsets.only(top: height * 0.03, bottom: height * 0.02),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          TextWidget(text: 'Daily Deals', weight: FontWeight.bold, fontSize: width * 0.04),
-                          const TextWidget(text: 'View all', color: Colors.grey),
-                        ],
-                      ),
-                    ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: SizedBox(
-                        height: height * 0.28,
-                        child: const Row(
-                          children: [
-                            DailyDealsWidget(image: 'assets/png/watch2.png'),
-                            DailyDealsWidget(image: 'assets/png/watch2.png'),
-                            DailyDealsWidget(image: 'assets/png/watch2.png'),
-                            DailyDealsWidget(image: 'assets/png/watch2.png'),
+                      SizedBox(
+                        height: height * 0.2,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: const [
+                            ForSaleWidget(image: 'assets/png/watch2.png', title: 'Apple'),
+                            ForSaleWidget(image: 'assets/png/watch2.png', title: 'Audionic'),
+                            ForSaleWidget(image: 'assets/png/watch2.png', title: 'Sony'),
                           ],
                         ),
                       ),
-                    ),
-                    // SizedBox(
-                    //   height: 300,
-                    //   child: Expanded(
-                    //     child: PageView(
-                    //       controller: _pageController,
-                    //       onPageChanged: (index) {
-                    //         setState(() {
-                    //           _selectedIndex = index;
-                    //         });
-                    //       },
-                    //       children: const [
-                    //         AirPodsTab(),
-                    //       ],
-                    //     ),
-                    //   ),
-                    // )
-                  ],
+
+                      // Popular Brand
+                      Padding(
+                        padding: EdgeInsets.only(top: height * 0.03, bottom: height * 0.02),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextWidget(text: 'Popular Brand', weight: FontWeight.bold, fontSize: width * 0.04),
+                            const TextWidget(text: 'View all', color: Colors.grey),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.22,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: const [
+                            PopularBrandWidget(image: 'assets/png/laptop.png'),
+                            PopularBrandWidget(image: 'assets/png/laptop.png'),
+                          ],
+                        ),
+                      ),
+
+                      //Daily Deals
+                      Padding(
+                        padding: EdgeInsets.only(top: height * 0.03, bottom: height * 0.02),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextWidget(text: 'Daily Deals', weight: FontWeight.bold, fontSize: width * 0.04),
+                            const TextWidget(text: 'View all', color: Colors.grey),
+                          ],
+                        ),
+                      ),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: SizedBox(
+                          height: height * 0.28,
+                          child: Row(
+                            children: [
+                              DailyDealsWidget(image: 'assets/png/watch2.png'),
+                              DailyDealsWidget(image: 'assets/png/watch2.png'),
+                              DailyDealsWidget(image: 'assets/png/watch2.png'),
+                              DailyDealsWidget(image: 'assets/png/watch2.png'),
+                            ],
+                          ),
+                        ),
+                      ),
+                      // SizedBox(
+                      //   height: 300,
+                      //   child: Expanded(
+                      //     child: PageView(
+                      //       controller: _pageController,
+                      //       onPageChanged: (index) {
+                      //         setState(() {
+                      //           _selectedIndex = index;
+                      //         });
+                      //       },
+                      //       children: const [
+                      //         AirPodsTab(),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // )
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -316,10 +313,10 @@ class _HomeScreenState extends State<HomeScreen> {
     final width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () {
-        // setState(() {
-        //   _selectedIndex = index;
-        //   _pageController.animateToPage(index, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
-        // });
+        setState(() {
+          _selectedIndex = index;
+          _pageController.animateToPage(index, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+        });
       },
       child: Container(
         width: width * 0.38,
