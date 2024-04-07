@@ -25,6 +25,7 @@ class _GoToCheckOutScreenState extends State<GoToCheckOutScreen> {
         onTap: () {
           Navigator.pop(context);
         },
+        image: 'assets/png/edit.png',
       ),
       body: Stack(
         children: [

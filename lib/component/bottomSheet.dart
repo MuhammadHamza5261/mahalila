@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../utils/constants.dart';
 import '../utils/styles.dart';
-import 'bottom_sheet2.dart';
 import 'customText.dart';
 
 class CustomModalBottomSheet extends StatelessWidget {
@@ -10,6 +9,20 @@ class CustomModalBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(20.0),
+      decoration: const BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 20,
+              spreadRadius: 20,
+              offset: Offset(1, 0),
+            )
+          ],
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(30),
+            topLeft: Radius.circular(30),
+          )),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -35,7 +48,7 @@ class CustomModalBottomSheet extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              showModalBottomSheet(context: context, builder: (context) => CustomModalBottomSheet2());
+              //showModalBottomSheet(context: context, builder: (context) => CustomModalBottomSheet2());
             },
             child: Container(
               height: 50,

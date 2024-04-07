@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mahalila/component/customText.dart';
+import 'package:mahalila/screens/cart/my_cart_screen.dart';
 import 'package:mahalila/utils/styles.dart';
 
 import 'airpods_tab.dart';
@@ -44,14 +45,19 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: AppColors.primaryColor,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: Image.asset('assets/png/cart.png', width: width * 0.065, height: height * 0.1),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => MyCartScreen()));
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColors.primaryColor,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(3.0),
+                        child: Image.asset('assets/png/cart.png', width: width * 0.065, height: height * 0.1),
+                      ),
                     ),
                   )
                 ],

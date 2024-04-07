@@ -24,6 +24,7 @@ class _ViewAllForSaleState extends State<ViewAllForSale> {
         onTap: () {
           Navigator.pop(context);
         },
+        image: 'assets/png/cart.png',
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),

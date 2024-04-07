@@ -6,7 +6,8 @@ import 'customText.dart';
 class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final VoidCallback onTap;
-  const CustomAppBar2({super.key, required this.title, required this.onTap});
+  final String image;
+  const CustomAppBar2({super.key, required this.title, required this.onTap, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +32,8 @@ class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
               color: AppColors.primaryColor,
             ),
             child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Image.asset('assets/png/cart.png'),
+              padding: const EdgeInsets.all(5.0),
+              child: Image.asset(image),
             ),
           ),
         )
