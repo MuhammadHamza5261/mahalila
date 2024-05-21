@@ -16,7 +16,7 @@ class WishList extends StatelessWidget {
       appBar: CustomAppBar2(
         title: 'Wishlist',
         onTap: () {
-          Navigator.pop(context);
+          // Navigator.pop(context);
         },
         image: 'assets/png/cart.png',
       ),

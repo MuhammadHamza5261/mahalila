@@ -29,6 +29,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Stack(
         children: [
@@ -148,7 +150,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       child: CustomButton(
                           loading: isLoading,
                           width: double.infinity,
-                          height: 50,
+                          height: height*0.06,
                           buttonColor: AppColors.primaryColor,
                           radius: 8,
                           text: 'SIGN UP',

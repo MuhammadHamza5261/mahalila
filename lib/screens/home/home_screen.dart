@@ -17,14 +17,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isNotificationScreen = true;
-  int _selectedIndex = 0;
+  final int _selectedIndex = 0;
   final PageController _pageController = PageController();
   int _currentImageIndex = 0;
+
   List<String> imagesPath = [
     'assets/png/slider.png',
     'assets/png/slider.png',
     'assets/png/slider.png',
   ];
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -35,7 +37,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(top: height * 0.005, left: width * 0.05, right: width * 0.05, bottom: 0),
+          padding: EdgeInsets.only(
+              top: height * 0.005,
+              left: width * 0.05,
+              right: width * 0.05,
+              bottom: 0,
+          ),
           child: Column(
             children: [
               ///App bar (height * 0.1)
@@ -46,7 +53,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Row(
                       children: [
-                        Image.asset('assets/png/menu.png', width: width * 0.07, height: height * 0.1),
+                        Image.asset(
+                            'assets/png/menu.png',
+                            width: width * 0.07,
+                            height: height * 0.1,
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(left: 10.0),
                           child: Image.asset('assets/png/logo.png', width: width * 0.36, height: height * 0.05),
@@ -64,7 +75,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(3.0),
-                          child: Image.asset('assets/png/cart.png', width: width * 0.065, height: height * 0.1),
+                          child: Image.asset(
+                              'assets/png/cart.png',
+                              width: width * 0.065,
+                              height: height * 0.1,
+                          ),
                         ),
                       ),
                     )
@@ -72,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              ///Text filed for search  (height * 0.07)
+              ///Text filed for search
               SizedBox(
                 height: searchBarHeight,
                 child: TextFormField(
@@ -84,8 +99,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.all(4.0),
                         child: Image.asset('assets/png/search.png', width: 5),
                       ),
-                      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(color: Color(0xffEBEEF0))),
-                      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide(color: AppColors.primaryColor))),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(color: Color(0xffEBEEF0))),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8), borderSide: BorderSide(color: AppColors.primaryColor))),
                 ),
               ),
 
@@ -140,7 +157,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 text: '4.9',
                                                 style: TextStyle(color: Colors.white, fontSize: width * 0.038),
                                               ),
-                                              TextSpan(text: ' (212k reviews)', style: TextStyle(color: Colors.white, fontSize: width * 0.03)),
+                                              TextSpan(
+                                                  text: ' (212k reviews)', style: TextStyle(color: Colors.white, fontSize: width * 0.03)),
                                             ],
                                           ),
                                         ),
@@ -188,16 +206,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
 
-                    /// For Scale
+                    /// For Sale
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: height * 0.02),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          TextWidget(text: 'For Scale', weight: FontWeight.bold, fontSize: width * 0.04),
+                          TextWidget(text: 'For Sale', weight: FontWeight.bold, fontSize: width * 0.04),
                           GestureDetector(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => ViewAllForSale()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => const ViewAllForSale()));
                               },
                               child: const TextWidget(text: 'View all', color: Colors.grey)),
                         ],

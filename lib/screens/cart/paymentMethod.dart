@@ -135,7 +135,7 @@ class _PaymentMethodBottomSheetState extends State<PaymentMethodBottomSheet> {
                 const Spacer(),
                 Radio(
                     activeColor: AppColors.primaryColor,
-                    value: '3',
+                    value: '4',
                     groupValue: _groupValue,
                     onChanged: (value) {
                       setState(() {

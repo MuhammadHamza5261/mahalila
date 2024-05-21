@@ -18,8 +18,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
   final List<Widget> _screens = [
     HomeScreen(),
     WishList(),
-    OrderHistoryScreen(),
-    Profile(),
+    const OrderHistoryScreen(),
+    const Profile(),
   ];
 
   @override

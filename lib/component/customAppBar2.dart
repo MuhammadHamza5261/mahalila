@@ -20,7 +20,26 @@ class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
         weight: FontWeight.w600,
         color: AppColors.primaryColor,
       ),
-      leading: IconButton(onPressed: onTap, icon: const Icon(Icons.arrow_back_ios_sharp, color: Colors.black, size: 18)),
+      leading: Padding(
+        padding: const EdgeInsets.all(12),
+        child: InkWell(
+          onTap: () {
+            //  Navigator.pop(context);
+          },
+          child: Container(
+            width: 30,
+            height: 30,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: AppColors.primaryColor,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Image.asset("assets/png/arrow_back.png"),
+            ),
+          ),
+        ),
+      ),
       actions: [
         Padding(
           padding: const EdgeInsets.only(right: 20),

@@ -11,6 +11,14 @@ class TextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(textAlign: textAlign, text, style: TextStyle(fontFamily: fontFamily, fontSize: fontSize, fontWeight: weight, color: color));
+    return Text(
+        textAlign: textAlign,
+        text, style: TextStyle(
+        fontFamily: fontFamily,
+        fontSize: fontSize,
+        fontWeight: weight,
+        color: color,
+    )
+    );
   }
 }

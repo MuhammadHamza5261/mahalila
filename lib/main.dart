@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
-
-import 'bottom_navigator.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mahalila/bloc/login_bloc.dart';
+import 'package:mahalila/screens/splash_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    
+    MultiBlocProvider(
+        providers: [
+           BlocProvider<LoginBloc>(create: (context) => LoginBloc()),
+        ],
+        child: const MyApp(),
+    ),
+
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: NavigationScreen(),
+      home: SplashScreen(),
     );
   }
 }

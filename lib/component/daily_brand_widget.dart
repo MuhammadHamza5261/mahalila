@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
+import '../product_details_screen.dart';
 import 'customText.dart';
 
 class DailyDealsWidget extends StatelessWidget {
@@ -10,19 +12,24 @@ class DailyDealsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
-    return Container(
-      width: width * 0.45,
-      height: height * 0.28,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetailsScreen()));
+      },
+      child: Container(
+        width: width * 0.45,
+        height: height * 0.28,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
+        ),
+        child: const Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: EdgeInsets.only(left: 12, bottom: 10),
+              child: TextWidget(text: 'Watch', color: CupertinoColors.white, weight: FontWeight.w500),
+            )),
       ),
-      child: const Align(
-          alignment: Alignment.bottomLeft,
-          child: Padding(
-            padding: EdgeInsets.only(left: 12, bottom: 10),
-            child: TextWidget(text: 'Watch', color: CupertinoColors.white, weight: FontWeight.w500),
-          )),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mahalila/go_to_checkout_screen.dart';
 
 import '../utils/constants.dart';
 import '../utils/styles.dart';
@@ -8,7 +9,7 @@ class CustomModalBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(20.0),
       decoration: const BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -49,6 +50,7 @@ class CustomModalBottomSheet extends StatelessWidget {
           InkWell(
             onTap: () {
               //showModalBottomSheet(context: context, builder: (context) => CustomModalBottomSheet2());
+              Navigator.push(context, MaterialPageRoute(builder: (context) => GoToCheckOutScreen()));
             },
             child: Container(
               height: 50,
